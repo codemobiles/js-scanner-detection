@@ -25,6 +25,7 @@ class ScannerDetection {
     document.onkeypress = this.keypress.bind(this)
   }
   keypress (e) {
+    console.log(e)
     if (this.options.stopPropagation) e.stopImmediatePropagation()
     if (this.options.preventDefault) e.preventDefault()
 

@@ -25,7 +25,6 @@ class ScannerDetection {
     document.onkeypress = this.keypress.bind(this)
   }
   keypress (e) {
-    console.log(e)
     if (this.options.stopPropagation) e.stopImmediatePropagation()
     if (this.options.preventDefault) e.preventDefault()
 
@@ -71,7 +70,7 @@ class ScannerDetection {
         this.stringWriting.length * this.options.avgTimeByChar
     ) {
       if (this.options.onComplete) {
-        this.options.onComplete.call(this, this.stringWriting)
+        this.options.onComplete.call(this, `${this.stringWriting} hello world`)
       }
       this.initScannerDetection()
       return true

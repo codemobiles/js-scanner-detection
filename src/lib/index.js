@@ -70,7 +70,7 @@ class ScannerDetection {
         this.stringWriting.length * this.options.avgTimeByChar
     ) {
       if (this.options.onComplete) {
-        this.options.onComplete.call(this, `${this.stringWriting} hello ->  ${e.code} ${e.which}`)
+        this.options.onComplete.call(this, `${this.stringWriting} hello ->`)
       }
       this.initScannerDetection()
       return true

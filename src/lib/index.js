@@ -44,11 +44,11 @@ class ScannerDetection {
 
     if (this.testTimer) clearTimeout(this.testTimer)
     if (this.callIsScanner) {
-      this.scannerDetectionTest()
+      this.scannerDetectionTest(e)
       this.testTimer = false
     } else {
       this.testTimer = setTimeout(() => {
-        this.scannerDetectionTest()
+        this.scannerDetectionTest(e)
       }, this.options.timeBeforeScanTest)
     }
 
@@ -56,21 +56,17 @@ class ScannerDetection {
     this.trigger('scannerDetectionReceive', { evt: e })
   }
   trigger (options) {}
-  scannerDetectionTest (s) {
-    // If string is given, test it
-    if (s) {
-      this.firstCharTime = this.lastCharTime = 0
-      this.stringWriting = s
-    }
-    // If all condition are good (length, time...), call the callback and re-initialize the plugin for next scanning
-    // Else, just re-initialize
+  scannerDetectionTest (e) {
+    // NOTE: complete when last key is enter.
+    const keyCode = e.keyCode || e.which
     if (
       this.stringWriting.length >= this.options.minLength &&
       this.lastCharTime - this.firstCharTime <
-        this.stringWriting.length * this.options.avgTimeByChar
+        this.stringWriting.length * this.options.avgTimeByChar &&
+        keyCode === 13
     ) {
       if (this.options.onComplete) {
-        this.options.onComplete.call(this, `${this.stringWriting} hello ->`)
+        this.options.onComplete.call(this, this.stringWriting)
       }
       this.initScannerDetection()
       return true

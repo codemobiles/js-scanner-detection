@@ -22,9 +22,9 @@ class ScannerDetection {
     this.stringWriting = ''
     this.callIsScanner = false
     this.testTimer = false
-    document.onkeypress = this.keypress.bind(this)
+    document.onkeydown = this.keydown.bind(this)
   }
-  keypress (e) {
+  keydown (e) {
     if (this.options.stopPropagation) e.stopImmediatePropagation()
     if (this.options.preventDefault) e.preventDefault()
 
@@ -33,9 +33,6 @@ class ScannerDetection {
       e.stopImmediatePropagation()
       this.callIsScanner = true
     } else {
-      console.log('e.which', e.which)
-      console.log('e.keyCode', e.keyCode)
-      console.log('String.fromCharCode(e.which)', String.fromCharCode(e.which))
       this.stringWriting += String.fromCharCode(e.which)
       this.callIsScanner = false
     }

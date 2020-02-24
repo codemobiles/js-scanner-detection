@@ -34,6 +34,7 @@ class ScannerDetection {
       this.callIsScanner = true
     } else {
       console.log('e.which', e.which)
+      console.log('e.keyCode', e.keyCode)
       console.log('String.fromCharCode(e.which)', String.fromCharCode(e.which))
       this.stringWriting += String.fromCharCode(e.which)
       this.callIsScanner = false

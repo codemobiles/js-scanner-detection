@@ -22,9 +22,9 @@ class ScannerDetection {
     this.stringWriting = ''
     this.callIsScanner = false
     this.testTimer = false
-    document.onkeydown = this.keydown.bind(this)
+    document.onkeypress = this.keypress.bind(this)
   }
-  keydown (e) {
+  keypress (e) {
     if (this.options.stopPropagation) e.stopImmediatePropagation()
     if (this.options.preventDefault) e.preventDefault()
 

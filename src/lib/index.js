@@ -33,6 +33,7 @@ class ScannerDetection {
       e.stopImmediatePropagation()
       this.callIsScanner = true
     } else {
+      console.log('String.fromCharCode(e.which)', String.fromCharCode(e.which))
       this.stringWriting += String.fromCharCode(e.which)
       this.callIsScanner = false
     }

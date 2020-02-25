@@ -10,7 +10,7 @@ class ScannerDetection {
       onError: false, // Callback after detection of a unsuccessful scanning
       onReceive: false, // Callback after receive a char
       timeBeforeScanTest: 100, // Wait duration (ms) after keypress event to check if scanning is finished
-      avgTimeByChar: 90, // Average time (ms) between 2 chars. Used to do difference between keyboard typing and scanning
+      avgTimeByChar: 30, // Average time (ms) between 2 chars. Used to do difference between keyboard typing and scanning
       minLength: 6, // Minimum length for a scanning
       endChar: [9, 13], // Chars to remove and means end of scanning
       stopPropagation: false, // Stop immediate propagation on keypress event
